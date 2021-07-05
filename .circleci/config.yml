@@ -1,5 +1,5 @@
 version: rev1.5_template
-steps:
+jobs:
  - name: LLVM-tc Compilation
    image: xyzuan/xdocker:latest
    environment:
