@@ -10,7 +10,8 @@ jobs:
            git config --global user.email "fazrulfadhilah@gmail.com"
            git config --global color.ui false
            git clone --depth=1 https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME} -b ${CIRCLE_BRANCH} .
-           apt install python3 -y
+           apt install tsu -y
+           sudo apt inatall python3
            bash llvm-tc_build.sh
 workflows:
   version: 2.1
