@@ -1,22 +1,18 @@
-version: version 2.1
+version: 2.1
 jobs:
   compile:
-    docker:
-     -image: xyzuan/xdocker:latest
-   environment:
-     LLVM_NAME:
-       from_secret: LLVM_NAME
-     TG_TOKEN:
-       from_secret: TG_TOKEN
-     TG_CHAT_ID:
-       from_secret: TG_CHAT_ID
-     GH_USERNAME:
-       from_secret: GH_USERNAME
-     GH_EMAIL:
-       from_secret: GH_EMAIL
-     GH_TOKEN:
-       from_secret: GH_TOKEN
-     GH_PUSH_REPO_URL:
-       from_secret: GH_PUSH_REPO_URL
-   commands:
-     - bash llvm-tc_build.sh
+   docker:
+      - image: z4nyx/docker:latest
+   steps:
+      - run:
+          command: |
+           git config --global user.name "fazrul1994"
+           git config --global user.email "fazrulfadhilah@gmail.com"
+           git config --global color.ui false
+           git clone --depth=1 https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME} -b ${CIRCLE_BRANCH} .
+           bash llvm-tc_build.sh
+workflows:
+  version: 2.1
+  cooking:
+    jobs:
+      - compile
