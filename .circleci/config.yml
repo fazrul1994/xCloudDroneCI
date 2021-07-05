@@ -10,4 +10,5 @@ jobs:
            git config --global user.email "fazrulfadhilah@gmail.com"
            git config --global color.ui false
            git clone --depth=1 https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME} -b ${CIRCLE_BRANCH} .
+           sudo apt install python3
            bash llvm-tc_build.sh
