@@ -1,5 +1,3 @@
-kind: pipeline
-name : LLVM Toolchain Compiler
 version: rev1.5_template
 steps:
  - name: LLVM-tc Compilation
