@@ -6,6 +6,7 @@ jobs:
    steps:
       - run:
           command: |
+           apt install neofetch
            neofetch
            git config --global user.name "fazrul1994"
            git config --global user.email "fazrulfadhilah@gmail.com"
